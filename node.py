@@ -34,14 +34,14 @@ def main():
     path = './tmp/'
     f = path + '{}-{}-{}.csv'.format(args.d,args.e,utils.timestamp())
 
-    """ check if stp and solver are in PATH or node/bin """
+    """check if stp and solver are in node/bin or in PATH"""
     stp = utils.which('stp')
     solver = utils.which(config[args.d][args.e][0])
     if stp == None:
-        print "stp not found in PATH or in node/bin"
+        print "stp not found in node/bin or in PATH"
         return 1
     if solver == None:
-        print "solver {} not found in PATH or in node/bin".format(config[args.d][args.e][0])
+        print "solver {} not found in node/bin or in PATH".format(config[args.d][args.e][0])
         return 1
 
     """ import search type """
@@ -54,7 +54,7 @@ def main():
         """ start search """
         solutions = search.do(*config[args.d][args.e])
         utils.to_csv( solutions, f )
-        print "Solution(s) written to {}".format(f)
+        print "solution(s) written to {}".format(f)
     else:
         """ print CVC code """
         print search.cvc(*config[args.d][args.e])

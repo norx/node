@@ -17,7 +17,7 @@ SIGNAL = 'unsat'
 SFLAGS = ['--model','--hex']
 TFLAGS = None
 
-""" call boolector """
+"""call boolector"""
 def do( stdin = '', flags = SFLAGS ):
     path = which(NAME)
     try:
@@ -26,7 +26,7 @@ def do( stdin = '', flags = SFLAGS ):
     except AttributeError as e:
         raise e
 
-""" parse output from boolector """
+"""parse output from boolector"""
 def parse( output ):
     x = {}
     for line in output.split('\n'):

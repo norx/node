@@ -73,7 +73,7 @@ def do( solver_t, ws, steps, w_min, w_max, search_t, diag, var_t, var_d ):
     return solutions
 
 
-# return cvc code only
+"""return cvc code only"""
 def cvc( solver_t, ws, steps, w_min, w_max, search_t, diag, var_t, var_d ):
     norx = NORX( ws, steps, w_min, search_t, diag )
     return norx()

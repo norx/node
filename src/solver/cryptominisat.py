@@ -16,7 +16,7 @@ SIGNAL = 'UNSATISFIABLE'
 SFLAGS = ['--threads=1','output_0.cnf']
 TFLAGS = None
 
-""" call cryptominisat """
+"""call cryptominisat"""
 def do( stdin = '', flags = SFLAGS ):
     path = which(NAME)
     try:
@@ -25,6 +25,6 @@ def do( stdin = '', flags = SFLAGS ):
     except AttributeError as e:
         raise e
 
-""" output of cryptominisat can't be parsed """
+"""output of cryptominisat can't be parsed"""
 def parse( output ):
     return output

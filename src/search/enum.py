@@ -60,7 +60,7 @@ def do( solver_t, ws, steps, weight, enum_max, search_t, diag ):
     return solutions
 
 
-# return cvc code only
+"""return cvc code only"""
 def cvc( solver_t, ws, steps, weight, enum_max, search_t, diag )
     norx = NORX( ws, steps, weight, search_t, diag )
     return norx()

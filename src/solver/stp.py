@@ -17,7 +17,7 @@ SIGNAL = 'Valid'
 SFLAGS = ['--cryptominisat']
 TFLAGS = { 'boolector': ['--print-back-SMTLIB2'], 'cryptominisat': ['--output-CNF', '--exit-after-CNF'], 'stp': ['--return'] }
 
-""" call stp """
+"""call stp"""
 def do( stdin = '', flags = SFLAGS ):
     if flags == ['--return']:
         return stdin
@@ -28,7 +28,7 @@ def do( stdin = '', flags = SFLAGS ):
     except AttributeError as e:
         raise e
 
-""" parse output from stp """
+"""parse output from stp"""
 def parse( output ):
     x = {}
     for line in output.split('\n'):

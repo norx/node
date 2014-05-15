@@ -8,7 +8,6 @@
     :license: BSD (3-Clause), see LICENSE
 """
 
-
 def init_csv( header, path, mode = 'w' ):
     with open( path, mode ) as f:
         f.write( '{}\n'.format(header) )
