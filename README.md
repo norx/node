@@ -3,9 +3,7 @@
 The research paper associated to this framework is [Report 2014/317](https://eprint.iacr.org/2014/317) of the IACR Cryptology ePrint Archive.
 
 ####Usage
-Quickstart: Compile [STP](https://stp.github.io/stp/) and copy the binary to the folder `bin`. Then execute `./node.py --help` for further instructions.
-
-TODO: Further instructions.
+Compile [STP](https://stp.github.io/stp/) and copy the binary `stp` to the folder `bin`. To start a search execute `./node.py -d {database} -e {entry}` where `database` and `entry` can be found in the settings file `config.json`. Moreover, execute `./node.py --help` to display all supported parameters.
 
 ####Requirements
 
