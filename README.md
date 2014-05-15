@@ -2,8 +2,14 @@
 
 The research paper associated to this framework is [Report 2014/317](https://eprint.iacr.org/2014/317) of the IACR Cryptology ePrint Archive.
 
+####Requirements
+
+  * [STP](https://stp.github.io/stp/)
+  * [Boolector](http://fmv.jku.at/boolector/) (optional)
+  * [CryptoMiniSat](https://github.com/msoos/cryptominisat) (optional)
+
 ####Usage
-Compile [STP](https://stp.github.io/stp/) and copy the binary `stp` to the folder `bin`. To start a search execute
+NODE searches for STP in `node/bin` or in $PATH (in that order). Thus, either install STP globally or copy the binary `stp` to the folder `node/bin`. The same holds for the other two supported solvers `boolector` and `cryptominisat`. To start a search execute
 ```
 ./node.py -d {database} -e {entry}
 ```
@@ -12,10 +18,3 @@ where `database` and `entry` can be found in the settings file `config.json`. Th
 ./node.py -d {database} -e {entry} -p
 ```
 to display the generated CVC code, without doing a search.
-
-
-####Requirements
-
-  * [STP](https://stp.github.io/stp/)
-  * [Boolector](http://fmv.jku.at/boolector/) (optional)
-  * [CryptoMiniSat](https://github.com/msoos/cryptominisat) (optional)

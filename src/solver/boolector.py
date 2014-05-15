@@ -10,19 +10,23 @@
 
 import subprocess
 import re
+from src.utils import which
 
 NAME = 'boolector'
-SPATH = './bin/boolector'
 SIGNAL = 'unsat'
 SFLAGS = ['--model','--hex']
 TFLAGS = None
 
-# call boolector
-def do( stdin = '', flags = SFLAGS, path = SPATH ):
-    popen = subprocess.Popen( [ path ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
-    return popen.communicate( input = stdin )[0]
+""" call boolector """
+def do( stdin = '', flags = SFLAGS ):
+    path = which(NAME)
+    try:
+        popen = subprocess.Popen( [ path ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
+        return popen.communicate( input = stdin )[0]
+    except AttributeError as e:
+        raise e
 
-# parse output from boolector
+""" parse output from boolector """
 def parse( output ):
     x = {}
     for line in output.split('\n'):

@@ -10,21 +10,25 @@
 
 import subprocess
 import re
+from src.utils import which
 
 NAME = 'stp'
-SPATH = './bin/stp'
 SIGNAL = 'Valid'
 SFLAGS = ['--cryptominisat']
 TFLAGS = { 'boolector': ['--print-back-SMTLIB2'], 'cryptominisat': ['--output-CNF', '--exit-after-CNF'], 'stp': ['--return'] }
 
-# call stp
-def do( stdin = '', flags = SFLAGS, path = SPATH ):
+""" call stp """
+def do( stdin = '', flags = SFLAGS ):
     if flags == ['--return']:
         return stdin
-    popen = subprocess.Popen( [ path ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
-    return popen.communicate( input = stdin )[0]
+    path = which(NAME)
+    try:
+        popen = subprocess.Popen( [ path ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
+        return popen.communicate( input = stdin )[0]
+    except AttributeError as e:
+        raise e
 
-# parse output from stp
+""" parse output from stp """
 def parse( output ):
     x = {}
     for line in output.split('\n'):
