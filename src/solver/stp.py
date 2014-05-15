@@ -30,7 +30,7 @@ def do( stdin = '', flags = SFLAGS ):
 """parse output from stp"""
 def parse( output ):
     x = {}
-    for line in output.split('\n'):
+    for line in output.split( '\n' ):
         key = re.search( '(\w)* =', line )
         val = re.search( '0x(\w)*', line )
         if key != None and val != None:

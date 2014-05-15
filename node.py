@@ -24,9 +24,9 @@ import src.utils as utils
 def main():
 
     p = argparse.ArgumentParser( description='{} ({})'.format( __description__, __version__ ) )
-    p.add_argument( '-d', help="set type of search database", required=True, choices=['basic','enum'] )
-    p.add_argument( '-e', help="set type of search problem (see config.json)", required=True )
-    p.add_argument( '-p', help="print the CVC code and return", action='store_true' )
+    p.add_argument( '-d', help = "set type of search database", required = True, choices = [ 'basic', 'enum' ] )
+    p.add_argument( '-e', help = "set type of search problem (see config.json)", required = True )
+    p.add_argument( '-p', help = "print the CVC code and return", action = 'store_true' )
     args = p.parse_args()
 
     config = json.load( open( './config.json', 'r' ) )
