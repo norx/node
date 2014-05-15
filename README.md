@@ -11,7 +11,7 @@ where `database` and `entry` can be found in the settings file `config.json`. Mo
 ```
 ./node.py -d {database} -e {entry} -p
 ```
-to display the used CVC code, without doing a search.
+to display the generated CVC code, without doing a search.
 
 
 ####Requirements
