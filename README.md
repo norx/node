@@ -7,7 +7,7 @@ Compile [STP](https://stp.github.io/stp/) and copy the binary `stp` to the folde
 ```
 ./node.py -d {database} -e {entry}
 ```
-where `database` and `entry` can be found in the settings file `config.json`. Moreover, execute
+where `database` and `entry` can be found in the settings file `config.json`. The results of a search are written to the folder `tmp`. Moreover, execute
 ```
 ./node.py -d {database} -e {entry} -p
 ```
