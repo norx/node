@@ -21,9 +21,8 @@ TFLAGS = { 'boolector': ['--print-back-SMTLIB2'], 'cryptominisat': ['--output-CN
 def do( stdin = '', flags = SFLAGS ):
     if flags == ['--return']:
         return stdin
-    path = which(NAME)
     try:
-        popen = subprocess.Popen( [ path ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
+        popen = subprocess.Popen( [ which(NAME) ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
         return popen.communicate( input = stdin )[0]
     except AttributeError as e:
         raise e

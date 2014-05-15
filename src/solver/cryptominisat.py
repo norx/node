@@ -18,9 +18,8 @@ TFLAGS = None
 
 """call cryptominisat"""
 def do( stdin = '', flags = SFLAGS ):
-    path = which(NAME)
     try:
-        popen = subprocess.Popen( [ path ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
+        popen = subprocess.Popen( [ which(NAME) ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
         return popen.communicate()[0]
     except AttributeError as e:
         raise e
