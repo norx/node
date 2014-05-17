@@ -8,8 +8,10 @@ The research paper associated to this framework is [Report 2014/317](https://epr
   * [Boolector](http://fmv.jku.at/boolector/) (optional)
   * [CryptoMiniSat](https://github.com/msoos/cryptominisat) (optional)
 
+NODE searches for `stp` in `node/bin` or in $PATH (in that order). Thus, either install STP globally or copy the binary `stp` to the folder `node/bin`. The same holds for the other two supported solvers `boolector` and `cryptominisat`.
+
 ####Usage
-NODE searches for `stp` in `node/bin` or in $PATH (in that order). Thus, either install STP globally or copy the binary `stp` to the folder `node/bin`. The same holds for the other two supported solvers `boolector` and `cryptominisat`. To start a search execute
+To start a differential search execute
 ```
 ./node.py -d {database} -e {entry}
 ```
