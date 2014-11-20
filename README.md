@@ -2,8 +2,6 @@
 
 The research paper associated to this framework is [Report 2014/317](https://eprint.iacr.org/2014/317) of the IACR Cryptology ePrint Archive.
 
-Test
-
 ####Requirements
 
   * [STP](https://stp.github.io/stp/)
