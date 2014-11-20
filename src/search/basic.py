@@ -12,17 +12,15 @@ import sys
 from src.norx import NORX
 import src.solver.stp as setup
 
-"""
-    solver_t: solver type
-    ws: word size
-    steps: number of steps
-    w_min: min weight for search
-    w_max: max weight for search
-    search_t: search type {full,initN,initNK,rate}
-    diag: start with a diagonal step {true,false}
-    var_t: variable type to fix with differences {'input','output'}
-    var_d: difference values
-"""
+# solver_t: solver type
+# ws: word size
+# steps: number of steps
+# w_min: min weight for search
+# w_max: max weight for search
+# search_t: search type {full,initN,initNK,rate}
+# diag: start with a diagonal step {true,false}
+# var_t: variable type to fix with differences {'input','output'}
+# var_d: difference values
 def do( solver_t, ws, steps, w_min, w_max, search_t, diag, var_t, var_d ):
 
     if solver_t == 'boolector':
@@ -32,7 +30,7 @@ def do( solver_t, ws, steps, w_min, w_max, search_t, diag, var_t, var_d ):
     elif solver_t == 'stp':
         import src.solver.stp as solver
     else:
-        print 'unknown solver'
+        print 'Unknown solver!'
         return
 
     w = w_min
@@ -41,7 +39,7 @@ def do( solver_t, ws, steps, w_min, w_max, search_t, diag, var_t, var_d ):
 
     print 'DFS: {} {} {} {}'.format( solver_t, search_t, ws, steps )
     while w <= w_max:
-        print '{}'.format( w ),
+        print '{}'.format(w),
         sys.stdout.flush()
 
         norx = NORX( ws, steps, w, search_t, diag )
@@ -58,7 +56,7 @@ def do( solver_t, ws, steps, w_min, w_max, search_t, diag, var_t, var_d ):
         if solver.SIGNAL in output:
             w += 1
         else:
-            print "differential found. weight: {}".format( w ),
+            print "Differential found. Weight: {}".format( w ),
             v = []
             if solver_t in ['boolector','stp']:
                 differential = solver.parse( output )
@@ -67,7 +65,7 @@ def do( solver_t, ws, steps, w_min, w_max, search_t, diag, var_t, var_d ):
                 v = [ str(w) ] + [ x[key] for key in sorted( x.keys() ) ] + [ str(w) ] + [ z[key] for key in sorted( z.keys() ) ]
             else:
                 v = [ str(w), output ]
-            solutions.append( v )
+            solutions.append(v)
             break
 
     print ''
@@ -75,7 +73,7 @@ def do( solver_t, ws, steps, w_min, w_max, search_t, diag, var_t, var_d ):
     return solutions
 
 
-"""return cvc code only"""
+# return cvc code only
 def cvc( solver_t, ws, steps, w_min, w_max, search_t, diag, var_t, var_d ):
     norx = NORX( ws, steps, w_min, search_t, diag )
     return norx()

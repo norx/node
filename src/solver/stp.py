@@ -17,20 +17,21 @@ SIGNAL = 'Valid'
 SFLAGS = ['--cryptominisat']
 TFLAGS = { 'boolector': ['--print-back-SMTLIB2'], 'cryptominisat': ['--output-CNF', '--exit-after-CNF'], 'stp': ['--return'] }
 
-"""call stp"""
+""" call stp """
 def do( stdin = '', flags = SFLAGS ):
     if flags == ['--return']:
         return stdin
+    path = which(NAME)
     try:
-        popen = subprocess.Popen( [ which(NAME) ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
+        popen = subprocess.Popen( [ path ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
         return popen.communicate( input = stdin )[0]
     except AttributeError as e:
         raise e
 
-"""parse output from stp"""
+""" parse output from stp """
 def parse( output ):
     x = {}
-    for line in output.split( '\n' ):
+    for line in output.split('\n'):
         key = re.search( '(\w)* =', line )
         val = re.search( '0x(\w)*', line )
         if key != None and val != None:

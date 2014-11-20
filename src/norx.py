@@ -12,7 +12,7 @@ import math
 
 class NORX:
 
-    """hamming weight constants"""
+    """ hamming weight constants """
     HWC = { 32: ('0x55555555',
                  '0x33333333',
                  '0x0f0f0f0f',
@@ -26,10 +26,10 @@ class NORX:
                  '0x0000ffff0000ffff',
                  '0x00000000ffffffff') }
 
-    """rotation constants"""
+    """ rotation constants """
     ROT = { 32: (8,11,16,31), 64: (8,19,40,63) }
 
-    """search types"""
+    """ search types """
     SEARCH_T = { 'init_N':  [0,3,4,5,6,7,8,9,10,11,12,13,14,15],
                  'init_NK': [0,3,8,9,10,11,12,13,14,15],
                  'rate':    [10,11,12,13,14,15],
@@ -205,7 +205,7 @@ class NORX:
           s += '\n'
         return s
 
-    """extract differences of a differential (see stp.py parse())"""
+    """ extract differences of a differential ( see stp.py parse() ) """
     def extract( self, var, r, differential ):
         v = self.get_vars( var, r )
         try:
@@ -219,7 +219,7 @@ class NORX:
     def extract_output( self, differential ):
         return self.extract( 'z', 0, differential )
 
-    """x: input difference, z: output difference"""
+    """ x: input difference, z: output difference """
     def exclude( self, x = {}, z = {}, r = False ):
         s = ''
         if x != {}:

@@ -8,6 +8,7 @@
     :license: BSD (3-Clause), see LICENSE
 """
 
+
 def init_csv( header, path, mode = 'w' ):
     with open( path, mode ) as f:
         f.write( '{}\n'.format(header) )
@@ -22,13 +23,13 @@ def to_csv( l, path, mode = 'a' ):
 
 def timestamp():
     import time
-    return time.strftime( "%Y%m%d-%H%M%S", time.localtime() )
+    return time.strftime("%Y%m%d-%H%M%S", time.localtime())
 
 def which(program):
     import os
-    paths = ['./bin'] + os.environ["PATH"].split( os.pathsep )
+    paths = ['./bin'] + os.environ["PATH"].split(os.pathsep)
     for path in paths:
-        fpath = os.path.join( path, program )
-        if os.path.isfile( fpath ) and os.access( fpath, os.X_OK ):
+        fpath = os.path.join(path,program)
+        if os.path.isfile(fpath) and os.access(fpath,os.X_OK):
             return fpath
     return None
