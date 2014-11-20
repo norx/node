@@ -14,7 +14,7 @@ from src.utils import which
 
 NAME = 'boolector'
 SIGNAL = 'unsat'
-SFLAGS = ['--model','--hex']
+SFLAGS = ['--model-gen','--hex']
 TFLAGS = None
 
 """ call boolector """

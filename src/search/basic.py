@@ -60,6 +60,8 @@ def do( solver_t, ws, steps, w_min, w_max, search_t, diag, var_t, var_d ):
             v = []
             if solver_t in ['boolector','stp']:
                 differential = solver.parse( output )
+                print differential
+                print output
                 x = norx.extract_input( differential )
                 z = norx.extract_output( differential )
                 v = [ str(w) ] + [ x[key] for key in sorted( x.keys() ) ] + [ str(w) ] + [ z[key] for key in sorted( z.keys() ) ]
