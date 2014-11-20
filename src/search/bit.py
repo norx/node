@@ -1,3 +1,12 @@
+"""
+    search/bit.py - basic differential search.
+    ------
+
+    This file is part of NODE - the NORX Differential-Search Engine.
+
+    :copyright: (c) 2014 Philipp Jovanovic <philipp@jovanovic.io>
+    :license: BSD (3-Clause), see LICENSE
+"""
 
 import src.search.basic as basic
 
