@@ -1,6 +1,6 @@
-[submodule "modules/stp"]
+[submodule "stp"]
 	path = modules/stp
 	url = https://github.com/stp/stp.git
-[submodule "modules/cryptominisat"]
+[submodule "cryptominisat"]
 	path = modules/cryptominisat
 	url = https://github.com/msoos/cryptominisat.git
