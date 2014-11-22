@@ -1,6 +1,6 @@
 ### NODE - The (NO)RX (D)ifferential-Search (E)ngine
 
-NODE is a framework to analyse differential propagation in the NORX authenticated encryption scheme. The accompanying research paper is [Report 2014/317](https://eprint.iacr.org/2014/317) of the IACR Cryptology ePrint Archive.
+NODE is a framework to analyse differential propagation in the NORX authenticated encryption scheme. The accompanying research paper can be found on the IACR Cryptology ePrint Archive as [Report 2014/317](https://eprint.iacr.org/2014/317).
 
 ####Requirements
 
