@@ -12,15 +12,13 @@ import sys
 from src.norx import NORX
 import src.solver.stp as setup
 
-"""
-    solver_t: solver type
-    ws: word size
-    steps: number of steps
-    weight: target weight
-    enum_max: maximal number of differentials
-    search_t: search type {full,initN,initNK,rate}
-    diag: start with a diagonal step {true,false}
-"""
+# solver_t: solver type
+# ws: word size
+# steps: number of steps
+# weight: target weight
+# enum_max: maximal number of differentials
+# search_t: search type {full,initN,initNK,rate}
+# diag: start with a diagonal step {true,false}
 def do( solver_t, ws, steps, weight, enum_max, search_t, diag ):
 
     if solver_t == 'boolector':
@@ -28,7 +26,7 @@ def do( solver_t, ws, steps, weight, enum_max, search_t, diag ):
     elif solver_t == 'stp':
         import src.solver.stp as solver
     else:
-        print 'unknown solver'
+        print 'Unknown solver!'
         return
 
     norx = NORX( ws, steps, weight, search_t, diag )
@@ -38,7 +36,7 @@ def do( solver_t, ws, steps, weight, enum_max, search_t, diag ):
 
     print 'ENUM: {} {} {} {} {} {}'.format( solver_t, search_t, ws, steps, weight, enum_max )
     while i != enum_max:
-        print '{}'.format( i ),
+        print '{}'.format(i),
         sys.stdout.flush()
 
         # setup search problem for solver
@@ -48,7 +46,7 @@ def do( solver_t, ws, steps, weight, enum_max, search_t, diag ):
         output = solver.do( stdin = sp )
 
         if solver.SIGNAL in output:
-            print "done"
+            print "Done."
             break
         else:
             differential = solver.parse( output )
@@ -56,14 +54,14 @@ def do( solver_t, ws, steps, weight, enum_max, search_t, diag ):
             z = norx.extract_output( differential )
             norx.exclude( x, z )
             v = [ str(weight) ] + [ x[key] for key in sorted( x.keys() ) ] + [ str(weight) ] + [ z[key] for key in sorted( z.keys() )]
-            solutions.append( v )
+            solutions.append(v)
             i += 1
 
     return solutions
 
 
-"""return cvc code only"""
-def cvc( solver_t, ws, steps, weight, enum_max, search_t, diag )
+# return cvc code only
+def cvc( solver_t, ws, steps, weight, enum_max, search_t, diag ):
     norx = NORX( ws, steps, weight, search_t, diag )
     return norx()
 

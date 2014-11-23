@@ -16,14 +16,15 @@ SIGNAL = 'UNSATISFIABLE'
 SFLAGS = ['--threads=1','output_0.cnf']
 TFLAGS = None
 
-"""call cryptominisat"""
+""" call cryptominisat """
 def do( stdin = '', flags = SFLAGS ):
+    path = which(NAME)
     try:
-        popen = subprocess.Popen( [ which(NAME) ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
+        popen = subprocess.Popen( [ path ] + flags, stdout = subprocess.PIPE, stdin = subprocess.PIPE )
         return popen.communicate()[0]
     except AttributeError as e:
         raise e
 
-"""output of cryptominisat can't be parsed"""
+""" output of cryptominisat can't be parsed """
 def parse( output ):
     return output
